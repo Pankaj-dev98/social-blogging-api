@@ -23,7 +23,7 @@ public class Comment {
     @Column(name = "comment_text")
     private String commentText;
 
-    @Column(name = "comment_creation_time", columnDefinition = "DATETIME(0)")
+    @Column(name = "comment_creation_time")
     private LocalDateTime commentCreationTime;
 
     @JsonIgnore

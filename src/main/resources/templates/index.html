@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <link rel="stylesheet" th:href="@{/css/app.css}" href="/css/app.css">
+</head>
+<body>
+<main class="shell">
+    <section id="signed-out-view" class="auth-layout" hidden>
+        <div class="auth-copy">
+            <h1>Blog</h1>
+            <p>Read posts from accounts you follow and publish updates from one focused page.</p>
+        </div>
+
+        <div class="auth-grid">
+            <article class="panel">
+                <h2>Create account</h2>
+                <form id="signup-form" class="stack">
+                    <label>
+                        <span>Full name</span>
+                        <input name="name" type="text" autocomplete="name" required>
+                    </label>
+                    <label>
+                        <span>Email</span>
+                        <input name="email" type="email" autocomplete="email" required>
+                    </label>
+                    <label>
+                        <span>Password</span>
+                        <input name="password" type="password" autocomplete="new-password" required>
+                    </label>
+                    <div class="form-row">
+                        <label>
+                            <span>Date of birth</span>
+                            <input name="dob" type="date" required>
+                        </label>
+                        <label>
+                            <span>Gender</span>
+                            <select name="gender" required>
+                                <option value="MALE">Male</option>
+                                <option value="FEMALE">Female</option>
+                                <option value="UNSPECIFIED">Unspecified</option>
+                            </select>
+                        </label>
+                    </div>
+                    <button type="submit">Sign up</button>
+                    <p id="signup-feedback" class="feedback" role="status"></p>
+                </form>
+            </article>
+
+            <article class="panel">
+                <h2>Sign in</h2>
+                <form id="signin-form" class="stack">
+                    <label>
+                        <span>Email</span>
+                        <input name="email" type="email" autocomplete="email" required>
+                    </label>
+                    <label>
+                        <span>Password</span>
+                        <input name="password" type="password" autocomplete="current-password" required>
+                    </label>
+                    <button type="submit">Sign in</button>
+                    <p id="signin-feedback" class="feedback" role="status"></p>
+                </form>
+            </article>
+        </div>
+    </section>
+
+    <section id="signed-in-view" class="app-view" hidden>
+        <header class="topbar">
+            <div>
+                <h1>Blog</h1>
+                <p id="welcome-text" class="muted"></p>
+            </div>
+            <div class="topbar-actions">
+                <a class="button-link secondary" href="/me">My profile</a>
+                <button id="followers-link" type="button" class="secondary">Followers</button>
+                <button id="signout-button" type="button" class="secondary">Sign out</button>
+            </div>
+        </header>
+
+        <div id="app-feedback" class="notice" role="status" hidden></div>
+
+        <section class="dashboard">
+            <div class="main-column">
+                <article class="panel compose-panel">
+                    <h2>Create post</h2>
+                    <form id="new-post-form" class="stack">
+                        <label>
+                            <span>Title</span>
+                            <input name="title" type="text" maxlength="50" required>
+                        </label>
+                        <label>
+                            <span>Post</span>
+                            <textarea name="blogText" rows="4" required></textarea>
+                        </label>
+                        <button type="submit">Publish</button>
+                    </form>
+                </article>
+
+                <article class="panel">
+                    <div class="panel-heading">
+                        <h2>Following feed</h2>
+                        <button id="refresh-feed" type="button" class="secondary">Refresh</button>
+                    </div>
+                    <div id="feed-list" class="post-list"></div>
+                </article>
+            </div>
+
+            <aside class="side-column">
+                <article class="panel">
+                    <h2>Find accounts</h2>
+                    <form id="account-search-form" class="search-form">
+                        <input name="name" type="search" placeholder="Search by name" required>
+                        <button type="submit">Search</button>
+                    </form>
+                    <div id="account-search-results" class="account-list"></div>
+                </article>
+
+                <article class="panel">
+                    <h2 id="account-posts-title">Account posts</h2>
+                    <div id="account-posts-list" class="post-list compact"></div>
+                </article>
+
+                <article id="followers-panel" class="panel" hidden>
+                    <h2>Followers</h2>
+                    <div id="followers-list" class="account-list"></div>
+                </article>
+            </aside>
+        </section>
+    </section>
+</main>
+
+<script th:src="@{/js/app.js}" src="/js/app.js"></script>
+</body>
+</html>

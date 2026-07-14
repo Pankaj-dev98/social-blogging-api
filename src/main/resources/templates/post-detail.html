@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post</title>
+    <link rel="stylesheet" th:href="@{/css/app.css}" href="/css/app.css">
+</head>
+<body>
+<main class="shell detail-shell" th:attr="data-post-id=${postId}">
+    <header class="topbar">
+        <div>
+            <a class="back-link" href="/">Back to feed</a>
+            <h1 id="detail-title">Post</h1>
+            <p id="detail-meta" class="muted"></p>
+        </div>
+    </header>
+
+    <div id="detail-feedback" class="notice" role="status" hidden></div>
+
+    <article class="panel post-detail">
+        <p id="detail-body"></p>
+    </article>
+
+    <section class="panel comments-panel">
+        <h2>Comments</h2>
+        <div id="comments-list" class="comments-list"></div>
+    </section>
+</main>
+
+<script th:src="@{/js/post-detail.js}" src="/js/post-detail.js"></script>
+</body>
+</html>

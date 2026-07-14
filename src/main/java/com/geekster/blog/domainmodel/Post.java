@@ -26,7 +26,7 @@ public class Post {
     @Column(name = "post_text", columnDefinition = "VARCHAR(512) NOT NULL")
     private String postText;
 
-    @Column(name = "creation_time", columnDefinition = "datetime(0)")
+    @Column(name = "creation_time")
     private LocalDateTime creationTime;
 
     @ManyToOne

@@ -11,7 +11,7 @@ import java.time.LocalDate;
 @Data
 @Validated
 public class SignUpDto {
-    @Pattern(regexp = "^[a-zA-Z]+$", message = "Only English letters allowed in a name")
+    @Pattern(regexp = "^[a-zA-Z]+(?: [a-zA-Z]+)*$", message = "Only English letters and single spaces allowed in a name")
     private String name;
 
     @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).{8,}$", message = "Password should be at least 8 characters long, must have at least" +

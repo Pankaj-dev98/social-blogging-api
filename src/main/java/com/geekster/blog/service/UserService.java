@@ -81,7 +81,7 @@ public class UserService {
 
     @Transactional
     public String signOut(AuthDto authDto) {
-        if(!authenticateUser(authDto))
+        if (!authenticateUser(authDto))
             throw new InvalidCredentialsException("Invalid combination of email/Credentials. Please try again");
 
         User user = userDAO.findByEmail(authDto.getEmail());

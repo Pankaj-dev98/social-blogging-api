@@ -1,6 +1,5 @@
 # Blog-post API
 
-**Name: Pankaj Kalra, Batch: FS-11**
 [GITHUB](https://github.com/Pankaj-dev98/mct-m4-submission-geekster)
 
 ## Frameworks and languages used
